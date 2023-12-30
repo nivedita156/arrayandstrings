@@ -1,0 +1,26 @@
+vector<vector<int>> findTriplets(vector<int>arr, int n, int K) {
+	vector<vector<int>>result;
+	set<vector<int>>s;
+	sort(arr.begin(),arr.end());
+	
+	for(int i=0;i<n;i++){
+		int left=i+1;
+	    int right=n-1;
+		while(left<right){
+			int sum=arr[i]+arr[left]+arr[right];
+			if(sum==K){
+             vector<int>temp={arr[i],arr[left],arr[right]};
+
+              if(s.find(temp)==s.end()){
+
+                 result.push_back(temp);
+                 s.insert(temp);
+                }
+                left++;right--;
+            } 
+			else if(sum<K)left++;
+            else right--;
+        }
+    }
+        return result;
+}
