@@ -1,0 +1,20 @@
+void sort012(int *arr, int n)
+{
+    //using Dutch National Flag algorithm
+    int start=-1, mid=0, end=n;
+    while(mid<end)
+    {
+        if(arr[mid]==0){
+            start++;
+            swap(arr[start],arr[mid]);
+            mid++;
+        }
+        else if(arr[mid]==1){
+            mid++;
+        }
+        else{
+            end--;
+            swap(arr[mid],arr[end]);
+        }
+    }
+}
